@@ -7,16 +7,13 @@ file_path = input('What is the file path?')
 show_name = input('What is the name of the show?')
 # Ask user for season value.
 season = input('What is the show season (01, 02, etc.)?')
-# Counter for episode number.
-episode_counter = 0
 
-for i, old_name in enumerate(os.listdir(file_path)):
-    episode_counter += 1
+for episode, old_name in enumerate(os.listdir(file_path), 1):
     # Creates episode_string.
-    if episode_counter < 10:
-        episode_string = 'E0' + str(episode_counter)
+    if episode < 10:
+        episode_string = 'E0' + str(episode)
     else:
-        episode_string = 'E' + str(episode_counter)
+        episode_string = 'E' + str(episode)
     # Extracts last four letters in file name for file_suffix.
     file_suffix = old_name[-4:]
     # Assembles new name string.
